@@ -6,4 +6,5 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>EJB-tutorials-point-ejb</artifactId>
+  <packaging>ejb</packaging>
 </project>
