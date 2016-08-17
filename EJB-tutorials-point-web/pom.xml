@@ -7,4 +7,13 @@
   </parent>
   <artifactId>EJB-tutorials-point-web</artifactId>
   <packaging>war</packaging>
+  <dependencies>
+  	<dependency>
+  		<groupId>local.kapinos</groupId>
+  		<artifactId>EJB-tutorials-point-ejb</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>ejb</type>
+  		<scope>provided</scope>
+  	</dependency>
+  </dependencies>
 </project>

@@ -14,5 +14,9 @@ public class Temp {
     public Temp() {
         // TODO Auto-generated constructor stub
     }
+    
+    public String getSecret(){
+    	return "Temp - getSecret";
+    }
 
 }
