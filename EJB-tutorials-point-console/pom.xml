@@ -6,20 +6,19 @@
 		<artifactId>A003-EJB-tutorials-point</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>EJB-tutorials-point-ear</artifactId>
-	<packaging>ear</packaging>
+	<artifactId>EJB-tutorials-point-console</artifactId>
+
 	<dependencies>
 		<dependency>
 			<groupId>local.kapinos</groupId>
-			<artifactId>EJB-tutorials-point-ejb</artifactId>
+			<artifactId>EJB-tutorials-point-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<type>ejb</type>
 		</dependency>
+
 		<dependency>
-			<groupId>local.kapinos</groupId>
-			<artifactId>EJB-tutorials-point-web</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<type>war</type>
+			<groupId>org.glassfish.main.appclient</groupId>
+			<artifactId>gf-client</artifactId>
+			<version>4.1</version>
 		</dependency>
 	</dependencies>
 
@@ -27,15 +26,15 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-ear-plugin</artifactId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
 				<configuration>
-					<modules>
-						<jarModule>
-							<groupId>local.kapinos</groupId>
-							<artifactId>EJB-tutorials-point-common</artifactId>
-							<includeInApplicationXml>true</includeInApplicationXml>
-						</jarModule>
-					</modules>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>local.kapinos.console.EJBTester</mainClass>
+						</manifest>
+					</archive>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -1,4 +1,4 @@
-package local.kapinos.ejb;
+package local.kapinos.common;
 
 import java.util.List;
 
