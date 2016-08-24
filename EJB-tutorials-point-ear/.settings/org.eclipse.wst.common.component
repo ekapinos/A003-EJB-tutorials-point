@@ -2,10 +2,10 @@
     <wb-module deploy-name="EJB-tutorials-point-ear-0.0.1-SNAPSHOT">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
-        <dependent-module archiveName="EJB-tutorials-point-common-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/EJB-tutorials-point-common/EJB-tutorials-point-common">
+        <dependent-module archiveName="EJB-tutorials-point-ejb-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/EJB-tutorials-point-ejb/EJB-tutorials-point-ejb">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="EJB-tutorials-point-ejb-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/EJB-tutorials-point-ejb/EJB-tutorials-point-ejb">
+        <dependent-module archiveName="EJB-tutorials-point-common-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/EJB-tutorials-point-common/EJB-tutorials-point-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="EJB-tutorials-point-web-0.0.1-SNAPSHOT.war" deploy-path="/" handle="module:/resource/EJB-tutorials-point-web/EJB-tutorials-point-web">

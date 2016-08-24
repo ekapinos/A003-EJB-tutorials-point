@@ -28,14 +28,27 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.9</version>
 				<configuration>
+					<version>6</version>
+					<defaultLibBundleDir>/lib</defaultLibBundleDir>
+					
+					<!-- Nodes below are not necessary for Glassfish 4.1.1 -->
+					
+					<!--includeLibInApplicationXml>true</includeLibInApplicationXml>
 					<modules>
 						<jarModule>
 							<groupId>local.kapinos</groupId>
 							<artifactId>EJB-tutorials-point-common</artifactId>
 							<includeInApplicationXml>true</includeInApplicationXml>
+							<bundleDir>/lib</bundleDir
 						</jarModule>
 					</modules>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive-->
 				</configuration>
 			</plugin>
 		</plugins>
