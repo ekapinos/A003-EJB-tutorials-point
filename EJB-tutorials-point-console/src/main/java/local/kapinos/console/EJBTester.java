@@ -14,6 +14,8 @@ import local.kapinos.common.LibrarySessionBeanRemote;
 
 public class EJBTester {
 
+	public static final String JNDI_BEAN_NAME = "java:global/EJB-tutorials-point-ear/EJB-tutorials-point-ejb-0.0.1-SNAPSHOT/LibrarySessionBean";
+	
 	BufferedReader brConsoleReader = null;
 	Properties props;
 	InitialContext ctx;
@@ -50,7 +52,7 @@ public class EJBTester {
 	private void testStatelessEjb() {
 		try {
 			int choice = 1;
-			LibrarySessionBeanRemote libraryBean = (LibrarySessionBeanRemote) ctx.lookup("LibrarySessionBean/remote");
+			LibrarySessionBeanRemote libraryBean = (LibrarySessionBeanRemote) ctx.lookup(JNDI_BEAN_NAME);
 			while (choice != 2) {
 				String bookName;
 				showGUI();
@@ -69,7 +71,7 @@ public class EJBTester {
 			for (int i = 0; i < booksList.size(); ++i) {
 				System.out.println((i + 1) + ". " + booksList.get(i));
 			}
-			LibrarySessionBeanRemote libraryBean1 = (LibrarySessionBeanRemote) ctx.lookup("LibrarySessionBean/remote");
+			LibrarySessionBeanRemote libraryBean1 = (LibrarySessionBeanRemote) ctx.lookup(JNDI_BEAN_NAME);
 			List<String> booksList1 = libraryBean1.getBooks();
 			System.out.println("***Using second lookup to get library stateless object***");
 			System.out.println("Book(s) entered so far: " + booksList1.size());
