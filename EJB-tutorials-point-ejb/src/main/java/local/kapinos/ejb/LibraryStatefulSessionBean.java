@@ -8,21 +8,21 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.PostActivate;
 import javax.ejb.PrePassivate;
-import javax.ejb.Stateless;
+import javax.ejb.Stateful;
 
-import local.kapinos.common.LibrarySessionBeanRemote;
+import local.kapinos.common.LibraryStatefulSessionBeanRemote;
 
 /**
  * Session Bean implementation class LibrarySessionBean
  */
-@Stateless
-public class LibrarySessionBean implements LibrarySessionBeanRemote {
+@Stateful
+public class LibraryStatefulSessionBean implements LibraryStatefulSessionBeanRemote {
 	
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
 	List<String> bookShelf;
 
-	public LibrarySessionBean() {
+	public LibraryStatefulSessionBean() {
 		bookShelf = new ArrayList<String>();
 	}
 	
@@ -37,6 +37,14 @@ public class LibrarySessionBean implements LibrarySessionBeanRemote {
 	@PostConstruct
 	public void beanCreated(){
 		logger.info(getClass() + " - @PostConstruct");
+	}
+	@PostActivate
+	public void beanActivated(){
+		logger.info(getClass() + " - @PostActivate");
+	}
+	@PrePassivate
+	public void beanPassivated(){
+		logger.info(getClass() + " - @PrePassivate");
 	}
 	@PreDestroy
 	public void beanDestroyed(){
