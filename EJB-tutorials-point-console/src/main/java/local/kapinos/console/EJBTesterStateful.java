@@ -10,7 +10,7 @@ import java.util.Properties;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import local.kapinos.common.LibraryStatefulSessionBeanRemote;
+import local.kapinos.common.interfaces.LibraryStatefulSessionBeanRemote;
 
 public class EJBTesterStateful {
 

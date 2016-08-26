@@ -10,7 +10,7 @@ import javax.ejb.PostActivate;
 import javax.ejb.PrePassivate;
 import javax.ejb.Stateful;
 
-import local.kapinos.common.LibraryStatefulSessionBeanRemote;
+import local.kapinos.common.interfaces.LibraryStatefulSessionBeanRemote;
 
 /**
  * Session Bean implementation class LibrarySessionBean

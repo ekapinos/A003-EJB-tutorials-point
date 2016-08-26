@@ -6,11 +6,9 @@ import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.ejb.PostActivate;
-import javax.ejb.PrePassivate;
 import javax.ejb.Stateless;
 
-import local.kapinos.common.LibrarySessionBeanRemote;
+import local.kapinos.common.interfaces.LibrarySessionBeanRemote;
 
 /**
  * Session Bean implementation class LibrarySessionBean

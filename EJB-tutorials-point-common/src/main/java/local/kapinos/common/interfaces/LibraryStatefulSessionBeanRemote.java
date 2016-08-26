@@ -1,10 +1,13 @@
-package local.kapinos.common;
+package local.kapinos.common.interfaces;
 
 import java.util.List;
 import javax.ejb.Remote;
 
 @Remote
 public interface LibraryStatefulSessionBeanRemote {
-   void addBook(String bookName);
-   List<String> getBooks();
+
+	void addBook(String bookName);
+
+	List<String> getBooks();
+
 }

@@ -10,9 +10,9 @@ import java.util.Properties;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import local.kapinos.common.LibrarySessionBeanRemote;
+import local.kapinos.common.interfaces.LibrarySessionBeanRemote;
 
-public class EJBTester {
+public class EJBTesterStateless {
 
 	public static final String JNDI_BEAN_NAME = "java:global/EJB-tutorials-point-ear/EJB-tutorials-point-ejb-0.0.1-SNAPSHOT/LibrarySessionBean";
 	
@@ -22,7 +22,7 @@ public class EJBTester {
 	{
 		props = new Properties();
 		try {
-			props.load(EJBTester.class.getClassLoader().getResourceAsStream("jndi.properties"));
+			props.load(EJBTesterStateless.class.getClassLoader().getResourceAsStream("jndi.properties"));
 			//props.load(new FileInputStream("/jndi.properties"));
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -37,7 +37,7 @@ public class EJBTester {
 
 	public static void main(String[] args) {
 
-		EJBTester ejbTester = new EJBTester();
+		EJBTesterStateless ejbTester = new EJBTesterStateless();
 
 		ejbTester.testStatelessEjb();
 	}
