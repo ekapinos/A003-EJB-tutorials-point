@@ -21,6 +21,8 @@
 			<version>4.1</version>
 		</dependency>
 
+		<!-- See http://stackoverflow.com/questions/5489937/connecting-a-remote-jms-client-to-glassfish-3 -->
+		
 		<dependency>
 			<groupId>org.glassfish.mq</groupId>
 			<artifactId>imqbroker</artifactId>
