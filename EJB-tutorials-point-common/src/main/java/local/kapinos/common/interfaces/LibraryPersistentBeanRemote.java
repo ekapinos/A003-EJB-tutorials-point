@@ -1,15 +1,10 @@
 package local.kapinos.common.interfaces;
 
-import java.util.List;
-
 import javax.ejb.Remote;
 
 import local.kapinos.common.persistence.Book;
 
 @Remote
-public interface LibraryPersistentBeanRemote {
+public interface LibraryPersistentBeanRemote extends LibrarySessionBeanRemote<Book>{
 
-	void addBook(Book bookName);
-
-	List<Book> getBooks();
 }

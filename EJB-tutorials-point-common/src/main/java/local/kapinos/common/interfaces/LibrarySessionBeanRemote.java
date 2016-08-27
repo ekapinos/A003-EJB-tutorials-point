@@ -2,12 +2,10 @@ package local.kapinos.common.interfaces;
 
 import java.util.List;
 
-import javax.ejb.Remote;
+public interface LibrarySessionBeanRemote<T> {
 
-@Remote
-public interface LibrarySessionBeanRemote {
+	void addBook(T bookName);
 
-	void addBook(String bookName);
+	List<T> getBooks();
 
-	List<String> getBooks();
 }

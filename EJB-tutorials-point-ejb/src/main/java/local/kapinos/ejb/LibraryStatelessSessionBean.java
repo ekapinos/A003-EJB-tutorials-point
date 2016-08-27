@@ -8,19 +8,19 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
 
-import local.kapinos.common.interfaces.LibrarySessionBeanRemote;
+import local.kapinos.common.interfaces.LibraryStatelessSessionBeanRemote;
 
 /**
  * Session Bean implementation class LibrarySessionBean
  */
 @Stateless
-public class LibrarySessionBean implements LibrarySessionBeanRemote {
+public class LibraryStatelessSessionBean implements LibraryStatelessSessionBeanRemote {
 	
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
 	List<String> bookShelf;
 
-	public LibrarySessionBean() {
+	public LibraryStatelessSessionBean() {
 		bookShelf = new ArrayList<String>();
 	}
 	

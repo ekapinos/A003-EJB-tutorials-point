@@ -25,6 +25,10 @@ public class Book implements Serializable {
 
 	public Book() {
 	}
+	
+	public Book(String name) {
+		this.name = name;
+	}
 
 	public int getId() {
 		return id;
@@ -40,5 +44,10 @@ public class Book implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	@Override
+	public String toString() {
+		return "Book[id=" + id + ", name=" + name + "]";
 	}
 }
