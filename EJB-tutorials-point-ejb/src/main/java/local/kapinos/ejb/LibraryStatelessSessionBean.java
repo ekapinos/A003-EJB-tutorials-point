@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
 
 import local.kapinos.common.interfaces.LibraryStatelessSessionBeanRemote;
 
@@ -14,11 +15,12 @@ import local.kapinos.common.interfaces.LibraryStatelessSessionBeanRemote;
  * Session Bean implementation class LibrarySessionBean
  */
 @Stateless
+@Interceptors ({BusinessInterceptor.class})
 public class LibraryStatelessSessionBean implements LibraryStatelessSessionBeanRemote {
 	
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
-	List<String> bookShelf;
+	private List<String> bookShelf;
 
 	public LibraryStatelessSessionBean() {
 		bookShelf = new ArrayList<String>();
