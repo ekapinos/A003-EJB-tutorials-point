@@ -13,7 +13,7 @@ import javax.naming.NamingException;
 
 import local.kapinos.common.persistence.Book;
 
-public class EJBTesterMessageDriven extends AbstractEJBTester<Book>{
+public class EJBTesterMessageDriven extends AbstractEJBTesterWithBooks<Book>{
 	
 	QueueSession session;
 	QueueSender sender;
@@ -25,7 +25,7 @@ public class EJBTesterMessageDriven extends AbstractEJBTester<Book>{
 	}
 	
 	@Override
-	public void firstLookup(InitialContext ctx) throws Exception {
+	protected void firstLookup(InitialContext ctx) throws Exception {
 		Queue queue = (Queue) ctx.lookup("jms/BookQueue");
         QueueConnectionFactory factory = (QueueConnectionFactory) ctx.lookup("jms/BookQueueFactory");
         QueueConnection connection =  factory.createQueueConnection();
@@ -38,18 +38,18 @@ public class EJBTesterMessageDriven extends AbstractEJBTester<Book>{
 	}
 
 	@Override
-	public void addBook(String bookName) throws Exception {
+	protected void addBook(String bookName) throws Exception {
         ObjectMessage objectMessage = session.createObjectMessage(new Book(bookName));
         sender.send(objectMessage); 
 	}
 
 	@Override
-	public List<Book> getBooksList() {
+	protected List<Book> getBooksList() {
 		return ejbTesterPersistent.getBooksList();
 	}
 	
 	@Override
-	public List<Book> secondLookupAndGetBooksList(InitialContext ctx) throws NamingException {
+	protected List<Book> secondLookupAndGetBooksList(InitialContext ctx) throws NamingException {
 		return null;
 	}
 }

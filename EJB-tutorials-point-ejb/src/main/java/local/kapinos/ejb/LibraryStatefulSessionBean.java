@@ -20,7 +20,7 @@ public class LibraryStatefulSessionBean implements LibraryStatefulSessionBeanRem
 	
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
-	List<String> bookShelf;
+	private List<String> bookShelf;
 
 	public LibraryStatefulSessionBean() {
 		bookShelf = new ArrayList<String>();

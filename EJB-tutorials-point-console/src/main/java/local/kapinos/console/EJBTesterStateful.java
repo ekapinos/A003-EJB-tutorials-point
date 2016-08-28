@@ -7,7 +7,7 @@ import javax.naming.NamingException;
 
 import local.kapinos.common.interfaces.LibraryStatefulSessionBeanRemote;
 
-public class EJBTesterStateful extends AbstractEJBTester<String>{
+public class EJBTesterStateful extends AbstractEJBTesterWithBooks<String>{
 
 	LibraryStatefulSessionBeanRemote libraryBean;
 
@@ -16,17 +16,17 @@ public class EJBTesterStateful extends AbstractEJBTester<String>{
 	}
 	
 	@Override
-	public void firstLookup(InitialContext ctx) throws NamingException {
+	protected void firstLookup(InitialContext ctx) throws NamingException {
 		libraryBean = (LibraryStatefulSessionBeanRemote) ctx.lookup(JNDI_PREFIX_FOR_EJB_MODULE + "LibraryStatefulSessionBean");
 	}
 
 	@Override
-	public void addBook(String bookName) {
+	protected void addBook(String bookName) {
 		libraryBean.addBook(bookName);	
 	}
 
 	@Override
-	public List<String> getBooksList() {
+	protected List<String> getBooksList() {
 		return libraryBean.getBooks();
 	}
 }

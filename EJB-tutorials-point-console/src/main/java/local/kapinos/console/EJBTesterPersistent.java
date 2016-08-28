@@ -8,7 +8,7 @@ import javax.naming.NamingException;
 import local.kapinos.common.interfaces.LibraryPersistentBeanRemote;
 import local.kapinos.common.persistence.Book;
 
-public class EJBTesterPersistent extends AbstractEJBTester<Book>{
+public class EJBTesterPersistent extends AbstractEJBTesterWithBooks<Book>{
 
 	LibraryPersistentBeanRemote libraryBean;
 
@@ -17,17 +17,17 @@ public class EJBTesterPersistent extends AbstractEJBTester<Book>{
 	}
 	
 	@Override
-	public void firstLookup(InitialContext ctx) throws NamingException {
+	protected void firstLookup(InitialContext ctx) throws NamingException {
 		libraryBean = (LibraryPersistentBeanRemote) ctx.lookup(JNDI_PREFIX_FOR_EJB_MODULE + "LibraryPersistentBean");
 	}
 
 	@Override
-	public void addBook(String bookName) {
+	protected void addBook(String bookName) {
 		libraryBean.addBook(new Book(bookName));	
 	}
 
 	@Override
-	public List<Book> getBooksList() {
+	protected List<Book> getBooksList() {
 		return libraryBean.getBooks();
 	}
 }
