@@ -2,15 +2,18 @@ package local.kapinos.ejb;
 
 import javax.ejb.EJBException;
 import javax.ejb.Singleton;
+import javax.ejb.Startup;
 
+import local.kapinos.common.interfaces.ExceptionsSingletonSessionBeanLocal;
 import local.kapinos.common.interfaces.ExceptionsSingletonSessionBeanRemote;
 import local.kapinos.common.interfaces.MyException;
 
 /**
  * Session Bean implementation class Temp
  */
+@Startup
 @Singleton
-public class ExceptionsSingletonSessionBean implements ExceptionsSingletonSessionBeanRemote {
+public class ExceptionsSingletonSessionBean implements ExceptionsSingletonSessionBeanRemote, ExceptionsSingletonSessionBeanLocal {
 
     /**
      * Default constructor. 
@@ -19,6 +22,7 @@ public class ExceptionsSingletonSessionBean implements ExceptionsSingletonSessio
         // TODO Auto-generated constructor stub
     }
     
+    @Override
     public String getSecret(){
     	return "Temp - getSecret";
     }

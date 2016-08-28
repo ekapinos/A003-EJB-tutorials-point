@@ -22,18 +22,39 @@
 		</dependency>
 
 		<!-- See http://stackoverflow.com/questions/5489937/connecting-a-remote-jms-client-to-glassfish-3 -->
-		
 		<dependency>
 			<groupId>org.glassfish.mq</groupId>
 			<artifactId>imqbroker</artifactId>
 			<version>5.1</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.glassfish.mq</groupId>
 			<artifactId>imqjmsra</artifactId>
 			<version>5.1</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-discovery</groupId>
+			<artifactId>commons-discovery</artifactId>
+			<version>0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>axis</groupId>
+			<artifactId>axis-wsdl4j</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
