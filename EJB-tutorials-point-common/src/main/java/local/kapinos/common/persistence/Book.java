@@ -2,13 +2,19 @@ package local.kapinos.common.persistence;
 
 import java.io.Serializable;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 @Entity
 @Table(name = "books")
@@ -25,11 +31,18 @@ public class Book implements Serializable {
 	private int id;
 	private String name;
 
+	@Embedded
+	@AttributeOverrides({
+		@AttributeOverride(name = "name", column = @Column(name = "PUBLISHER")),
+	    @AttributeOverride(name = "address", column = @Column(name = "PUBLISHER_ADDRESS"))})
+	private Publisher publisher;
+	
 	public Book() {
 	}
 
 	public Book(String name) {
 		this.name = name;
+		this.publisher = new Publisher("unknown name", "aunknown address");
 	}
 
 	public int getId() {
@@ -48,8 +61,16 @@ public class Book implements Serializable {
 		this.id = id;
 	}
 
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
+	}
+
 	@Override
 	public String toString() {
-		return "Book[id=" + id + ", name=" + name + "]";
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 }
