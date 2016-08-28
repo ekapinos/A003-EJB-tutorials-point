@@ -1,16 +1,20 @@
 package local.kapinos.common.persistence;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -37,12 +41,24 @@ public class Book implements Serializable {
 	    @AttributeOverride(name = "address", column = @Column(name = "PUBLISHER_ADDRESS"))})
 	private Publisher publisher;
 	
+	@Lob @Basic(fetch= FetchType.EAGER)
+	private byte[] image;
+	
+	@Lob @Basic(fetch= FetchType.EAGER)
+	private String lob_xml;
+	
 	public Book() {
 	}
 
 	public Book(String name) {
 		this.name = name;
 		this.publisher = new Publisher("unknown name", "aunknown address");
+		try {
+			this.image = "test data".getBytes("UTF-8");
+			this.lob_xml = "<tag>test data<tag>";
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public int getId() {
@@ -67,6 +83,22 @@ public class Book implements Serializable {
 
 	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	public String getLobXml() {
+		return lob_xml;
+	}
+
+	public void setLobXml(String lob_xml) {
+		this.lob_xml = lob_xml;
 	}
 
 	@Override

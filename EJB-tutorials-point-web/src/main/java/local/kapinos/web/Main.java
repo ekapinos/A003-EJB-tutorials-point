@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import local.kapinos.ejb.Temp;
+import local.kapinos.ejb.ExceptionsSingletonSessionBean;
 
 /**
  * Servlet implementation class Main
@@ -20,7 +20,7 @@ public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@EJB
-	Temp temp;
+	ExceptionsSingletonSessionBean temp;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
